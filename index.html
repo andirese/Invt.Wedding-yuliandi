@@ -86,25 +86,23 @@
     music.play();
     window.location.hash = '#home';
   });
-</script>
-  // Fungsi untuk ambil parameter nama dari URL
+<script>
+  // Fungsi untuk ambil nama dari URL
   function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
+    const params = new URLSearchParams(window.location.search);
+    return params.get(param);
   }
 
-  // Ambil nama tamu dari URL
-  const namaTamu = getQueryParam('nama');
-  const elemenNama = document.getElementById('namaTamu');
+  const nama = getQueryParam('to');
+  const namaTamu = document.getElementById('namaTamu');
 
-  // Jika ada nama di URL, ganti isinya
-  if (namaTamu) {
-    elemenNama.innerText = decodeURIComponent(namaTamu.replace(/\+/g, ' '));
+  if (nama) {
+    namaTamu.innerText = decodeURIComponent(nama.replace(/\+/g, ' '));
   } else {
-    elemenNama.innerText = 'Tamu Undangan';
+    namaTamu.innerText = 'Tamu Undangan';
   }
 
-  // Script tombol buka undangan
+  // Fungsi buka undangan
   const bukaUndangan = document.getElementById('bukaUndangan');
   const opening = document.getElementById('opening');
   const music = document.getElementById('music');
