@@ -72,8 +72,19 @@
 </nav>
 
 <!-- Musik -->
-<audio id="music" src="musik.mp4" loop></audio>
+<audio id="music" src="musik.mp3" loop></audio>
 
-<script src="script.js"></script>
+<script>
+  const bukaUndangan = document.getElementById('bukaUndangan');
+  const opening = document.getElementById('opening');
+  const music = document.getElementById('music');
+
+  bukaUndangan.addEventListener('click', () => {
+    opening.style.display = 'none';      // Hilangkan opening
+    music.play();                        // Mainkan musik
+    window.location.hash = '#home';      // Scroll ke halaman home
+  });
+</script>
+
 </body>
 </html>
