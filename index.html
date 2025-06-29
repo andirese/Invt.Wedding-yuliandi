@@ -88,6 +88,22 @@
   });
 
 </script>
+<script>
+  // Fungsi untuk ambil parameter dari URL
+  function getQueryParam(param) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(param);
+  }
+
+  const nama = getQueryParam('to');
+  const namaTamu = document.getElementById('namaTamu');
+
+  if (nama) {
+    namaTamu.innerText = decodeURIComponent(nama.replace(/\+/g, ' '));
+  } else {
+    namaTamu.innerText = 'Tamu Undangan';
+  }
+</script>
 
 </body>
 </html>
