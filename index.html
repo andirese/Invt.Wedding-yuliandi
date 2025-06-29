@@ -87,6 +87,30 @@
     window.location.hash = '#home';
   });
 </script>
+  <script>
+  // Fungsi ambil query parameter dari URL
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  // Ambil nama tamu dari URL
+  const namaTamu = getQueryParam('nama') || 'Tamu Undangan';
+  
+  // Tampilkan ke halaman
+  document.getElementById('namaTamu').innerText = decodeURIComponent(namaTamu);
+
+  // Script untuk buka undangan
+  const bukaUndangan = document.getElementById('bukaUndangan');
+  const opening = document.getElementById('opening');
+  const music = document.getElementById('music');
+
+  bukaUndangan.addEventListener('click', () => {
+    opening.style.display = 'none';
+    music.play();
+    window.location.hash = '#home';
+  });
+</script>
 
 </body>
 </html>
