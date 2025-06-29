@@ -1,81 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wedding of Yuliani & Andi</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuliani & Andi Wedding Invitation</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="bunga-container"></div>
 
-    <div class="opening">
-        <h1 class="text-animate delay-1">The Wedding of</h1>
-        <h2 class="text-animate delay-2">Yuliani & Andi</h2>
-        <p class="text-animate delay-3">Minggu, 22 September 2025</p>
-        <p class="text-animate delay-4" id="namatamu"></p>
-        <button class="text-animate delay-5" onclick="bukaUndangan()">Buka Undangan</button>
-    </div>
+<div class="opening">
+  <img src="assets/foto-pengantin.jpg" alt="Foto Pengantin" class="foto">
+  <h2>WEDDING INVITATION</h2>
+  <h1>Yuliani & Andi</h1>
+  <p>Kepada Bapak/Ibu/Saudara/i</p>
+  <p><strong>Tamu Undangan</strong></p>
+  <button id="bukaUndangan">💌 BUKA UNDANGAN</button>
+</div>
 
-    <section id="content" class="hidden">
-        <div class="section" id="perkenalan">
-            <h2 class="text-animate delay-1">Perkenalan</h2>
-            <div class="card animate delay-2">
-                <img src="foto1.jpg" alt="foto1.jpg">
-                <h3 class="text-animate delay-3">Yuliani</h3>
-                <p class="text-animate delay-4">Putri dari Bapak Maman & Ibu Entar</p>
-            </div>
-            <div class="card animate delay-5">
-                <img src="foto2.jpg" alt="foto2.jpg">
-                <h3 class="text-animate delay-6">Andi</h3>
-                <p class="text-animate delay-7">Putra dari Bapak Agus Setiawan & Ibu Oom Rohmah</p>
-            </div>
-        </div>
+<audio id="music" src="musik.mp4" loop></audio>
 
-        <div class="section" id="akad">
-            <h2 class="text-animate delay-1">Akad Nikah</h2>
-            <p class="text-animate delay-2">Minggu, 22 September 2025</p>
-            <p class="text-animate delay-3">Kediaman Mempelai Wanita</p>
-            <a class="btn text-animate delay-4" href="https://maps.app.goo.gl/QbAk7Mp7ZSWA7icW6" target="_blank">📍 Petunjuk Lokasi</a>
-        </div>
-
-        <div class="section" id="galeri">
-            <h2 class="text-animate delay-1">Galeri</h2>
-            <div class="card animate delay-2">
-                <img src="images/foto1.jpg" alt="Galeri 1">
-            </div>
-            <div class="card animate delay-3">
-                <img src="images/foto2.jpg" alt="Galeri 2">
-            </div>
-        </div>
-
-        <div class="section" id="gift">
-            <h2 class="text-animate delay-1">Wedding Gift</h2>
-            <p class="text-animate delay-2">
-                Doa restu Anda merupakan karunia terindah bagi kami.<br>
-                Dan jika memberi adalah ungkapan tanda kasih,<br>
-                dengan senang hati kami menerima kado secara cashless melalui:
-            </p>
-            <div class="rekening text-animate delay-3">
-                <p>💸 Dana - 085224431545</p>
-            </div>
-        </div>
-
-        <div class="section" id="rsvp">
-            <h2 class="text-animate delay-1">RSVP & Ucapan</h2>
-            <a class="btn text-animate delay-2" href="https://wa.me/628xxxxxxxxxx?text=Halo%2C+saya+akan+hadir+di+acara+Yuliani+%26+Andi" target="_blank">💌 Konfirmasi via WhatsApp</a>
-        </div>
-    </section>
-
-    <audio id="bgm" loop>
-        <source src="musik.mp4" type="audio/mpeg">
-    </audio>
-
-    <div class="music-control">
-        <button onclick="toggleMusic()">🎵 Play/Pause Musik</button>
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
