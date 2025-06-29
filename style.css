@@ -1,14 +1,22 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #fff;
+  background-color: white;
   color: #333;
 }
 
 .section {
-  padding: 100px 20px;
+  padding: 80px 20px;
   min-height: 100vh;
+  box-sizing: border-box;
   text-align: center;
+}
+
+/* Foto Responsive */
+img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 15px;
 }
 
 /* Opening */
@@ -20,28 +28,24 @@ body {
   height: 100vh;
   background: white;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  z-index: 9999;
+  z-index: 1000;
 }
 
 .opening .foto {
   width: 200px;
-  border-radius: 20px;
 }
 
 .opening button {
-  padding: 10px 20px;
-  background-color: #f4a261;
+  padding: 12px 24px;
+  background: #f4a261;
   color: white;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-}
-
-.opening button:hover {
-  background-color: #e76f51;
+  margin-top: 20px;
 }
 
 /* Bottom Navigation */
@@ -72,16 +76,36 @@ body {
   color: #f4a261;
 }
 
-/* Button Map */
+/* Tombol Maps */
 .btn-maps {
-  display: inline-block;
   background-color: #2a9d8f;
   color: white;
-  padding: 10px 15px;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  display: inline-block;
   text-decoration: none;
+  margin-top: 10px;
 }
 
 .btn-maps:hover {
   background-color: #21867a;
+}
+
+/* Responsif Tambahan */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .bottom-nav a {
+    font-size: 20px;
+  }
 }
