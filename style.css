@@ -1,22 +1,35 @@
+/* Background utama */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: white;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: #333;
 }
 
+/* Section tampilan */
 .section {
-  padding: 80px 20px;
+  padding: 100px 20px;
   min-height: 100vh;
   box-sizing: border-box;
   text-align: center;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Foto Responsive */
+/* Foto Animasi */
 img {
   max-width: 90%;
   height: auto;
   border-radius: 15px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease;
+}
+
+img.show {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Opening */
@@ -36,6 +49,7 @@ img {
 
 .opening .foto {
   width: 200px;
+  border-radius: 20px;
 }
 
 .opening button {
@@ -46,6 +60,10 @@ img {
   border-radius: 25px;
   cursor: pointer;
   margin-top: 20px;
+}
+
+.opening button:hover {
+  background-color: #e76f51;
 }
 
 /* Bottom Navigation */
@@ -91,7 +109,7 @@ img {
   background-color: #21867a;
 }
 
-/* Responsif Tambahan */
+/* Responsif */
 @media (max-width: 600px) {
   h1 {
     font-size: 26px;
