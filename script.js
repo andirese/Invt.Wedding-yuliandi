@@ -23,9 +23,7 @@ window.addEventListener('hashchange', () => {
   });
 });
 
-// ===========================
-// Ambil nama tamu dari URL
-// ===========================
+// Nama tamu dari URL
 function getQueryParam(param) {
   const params = new URLSearchParams(window.location.search);
   return params.get(param);
@@ -38,4 +36,15 @@ if (nama) {
   namaTamu.innerText = decodeURIComponent(nama.replace(/\+/g, ' '));
 } else {
   namaTamu.innerText = 'Tamu Undangan';
+}
+
+// Efek bunga jatuh
+const totalBunga = 15;
+for (let i = 0; i < totalBunga; i++) {
+  const bunga = document.createElement('img');
+  bunga.src = 'bunga.png'; // Gambar bunga
+  bunga.classList.add('falling-bunga');
+  bunga.style.left = Math.random() * 100 + 'vw';
+  bunga.style.animationDuration = (Math.random() * 3 + 2) + 's';
+  document.body.appendChild(bunga);
 }
