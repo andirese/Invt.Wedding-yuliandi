@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap');
 
+/* General */
 body {
   margin: 0;
   font-family: 'Playfair Display', serif;
@@ -110,12 +111,14 @@ h2 {
   color: #ff6b81;
 }
 
+/* ========================= */
 /* Bunga di sudut */
 .bunga {
   position: fixed;
   width: 80px;
   z-index: 1000;
   opacity: 0.9;
+  animation: swing 4s ease-in-out infinite;
 }
 
 .bunga.top-left { top: 10px; left: 10px; }
@@ -123,24 +126,14 @@ h2 {
 .bunga.bottom-left { bottom: 10px; left: 10px; }
 .bunga.bottom-right { bottom: 10px; right: 10px; }
 
-.bunga {
-  animation: swing 4s ease-in-out infinite;
-}
-
 @keyframes swing {
   0%, 100% { transform: rotate(0); }
   50% { transform: rotate(5deg); }
 }
 
-/* Responsive */
-@media screen and (max-width: 600px) {
-  .galeri-foto {
-    width: 120px;
-  }
-
-  h1 {
-    font-size: 2.2rem;
-    .falling-bunga {
+/* ========================= */
+/* Bunga jatuh */
+.falling-bunga {
   position: fixed;
   top: -50px;
   width: 30px;
@@ -153,5 +146,49 @@ h2 {
   0% { transform: translateY(0); }
   100% { transform: translateY(110vh); }
 }
+
+/* ========================= */
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .opening-content img.foto {
+    width: 160px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .galeri-foto {
+    width: 120px;
+  }
+
+  .bunga {
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .opening-content img.foto {
+    width: 130px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .galeri-foto {
+    width: 100px;
+  }
+
+  .bunga {
+    width: 50px;
   }
 }
