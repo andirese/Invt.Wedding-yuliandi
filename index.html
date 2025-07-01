@@ -180,21 +180,21 @@
 </head>
 <body>
   <video autoplay muted loop id="bgVideo">
-    <source src="video-latar.mp4" type="video/mp4">
+    <source src="background.mp4" type="video/mp4">
     Browser Anda tidak mendukung video latar.
   </video>
 
   <button class="music-toggle" onclick="toggleMusic()">
-    <img src="music-icon.png" alt="Toggle Music" id="musicIcon">
+    <img src="logomusikawal.png" alt="Toggle Music" id="musicIcon">
   </button>
   <audio id="bgMusic" loop>
-    <source src="musik-latar.mp3" type="audio/mp3">
+    <source src="musik.mp4" type="audio/mp3">
     Browser Anda tidak mendukung audio.
   </audio>
 
   <div class="container" id="mainContainer">
     <div class="circle-photo">
-      <img src="foto-andi-yuli.jpg" alt="Foto Andi & Yuli">
+      <img src="andi-yuli.jpg" alt="Foto Andi & Yuli">
     </div>
     <div class="title">Wedding Invitation</div>
     <div class="names">Andi & Yuli</div>
@@ -206,7 +206,7 @@
   <div class="home-slide" id="homeSlide">
     <div class="text1">The Wedding of</div>
     <div class="text2">Yuli & Andi</div>
-    <div class="text3">25 Desember 2025</div>
+    <div class="text3">22 September 2025</div>
   </div>
 
   <div class="nav-bar">
@@ -237,10 +237,10 @@
     function toggleMusic() {
       if (isPlaying) {
         bgMusic.pause();
-        musicIcon.src = 'music-icon.png';
+        musicIcon.src = 'logomusiknonplay.png';
       } else {
         bgMusic.play();
-        musicIcon.src = 'music-icon-playing.png';
+        musicIcon.src = 'logomusikplay.png';
       }
       isPlaying = !isPlaying;
     }
