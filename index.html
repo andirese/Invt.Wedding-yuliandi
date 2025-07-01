@@ -117,15 +117,15 @@
 </head>
 <body>
   <video autoplay muted loop id="bgVideo">
-    <source src="background.mp4" type="video/mp4">
+    <source src="background-rubinisa.mp4" type="video/mp4">
     Browser Anda tidak mendukung video latar.
   </video>
 
   <button class="music-toggle" onclick="toggleMusic()">
-    <img src="play-button.png" alt="Toggle Music" id="musicIcon">
+    <img src="logomusikawal.png" alt="Toggle Music" id="musicIcon">
   </button>
   <audio id="bgMusic" loop>
-    <source src="musik.mp4" type="audio/mp3">
+    <source src="musikrubinisa.mp4" type="audio/mp3">
     Browser Anda tidak mendukung audio.
   </audio>
 
@@ -134,7 +134,7 @@
       <img src="andi-yuli.jpg" alt="Foto Andi & Yuli">
     </div>
     <div class="title">Wedding Invitation</div>
-    <div class="names">Andi & Yuli</div>
+    <div class="names">Nisa & Rubi</div>
     <div class="to">Kepada Yth:</div>
     <div class="guest-name" id="guestName">Bapak/Ibu/Saudara/i</div>
     <button class="open-button" onclick="openInvitation()">💌 Buka Undangan</button>
@@ -159,10 +159,10 @@
     function toggleMusic() {
       if (isPlaying) {
         bgMusic.pause();
-        musicIcon.src = 'logomusikplay.png';
+        musicIcon.src = 'logomusiknonplay.png';
       } else {
         bgMusic.play();
-        musicIcon.src = 'logomusiknonplay.png';
+        musicIcon.src = 'logomusikplay.png';
       }
       isPlaying = !isPlaying;
     }
