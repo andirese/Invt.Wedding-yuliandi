@@ -3,124 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yuliani & Andi Wedding Invitation</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Undangan Pernikahan Andi & Yuli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="video-latar.mp4" type="video/mp4">
+    Browser Anda tidak mendukung video latar.
+  </video>
 
-<!-- Bunga Sudut -->
-<img src="bunga.png" class="bunga top-left" alt="bunga">
-<img src="bunga.png" class="bunga top-right" alt="bunga">
-<img src="bunga.png" class="bunga bottom-left" alt="bunga">
-<img src="bunga.png" class="bunga bottom-right" alt="bunga">
-
-<!-- Opening -->
-<section id="opening" class="section">
-  <div class="opening-content">
-    <img src="foto1.jpg" alt="Foto Opening" class="foto">
-    <h2>WEDDING INVITATION</h2>
-    <h1>Yuliani & Andi</h1>
-    <p>Minggu, 22 September 2025</p>
-    <p>Kepada Bapak/Ibu/Saudara/i</p>
-    <p><strong id="namaTamu">Tamu Undangan</strong></p>
-    <button id="bukaUndangan">💌 BUKA UNDANGAN</button>
+  <div class="container">
+    <div class="circle-photo">
+      <img src="foto-andi-yuli.jpg" alt="Foto Andi & Yuli">
+    </div>
+    <div class="title">Wedding Invitation</div>
+    <div class="names">Andi & Yuli</div>
+    <div class="to">Kepada Yth:</div>
+    <div class="guest-name" id="guestName">Bapak/Ibu/Saudara/i</div>
+    <button class="open-button" onclick="openInvitation()">💌 Buka Undangan</button>
   </div>
-</section>
 
-<!-- Beranda -->
-<section id="home" class="section">
-  <h1>The Wedding of Yuliani & Andi</h1>
-  <p>Minggu, 22 September 2025</p>
-</section>
-
-<!-- Mempelai -->
-<section id="mempelai" class="section">
-  <h2>Yuliani</h2>
-  <img src="yuliani.jpg" alt="Yuliani">
-  <p>Putri dari Bapak ... & Ibu ...</p>
-
-  <h2>Andi</h2>
-  <img src="andi.png" alt="Andi">
-  <p>Putra dari Bapak ... & Ibu ...</p>
-</section>
-
-<!-- Acara -->
-<section id="acara" class="section">
-  <h2>Detail Acara</h2>
-  <p>Akad Nikah</p>
-  <p>Minggu, 22 September 2025</p>
-  <p>Kediaman Mempelai Wanita</p>
-  <a href="https://maps.app.goo.gl/QbAk7Mp7ZSWA7icW6" target="_blank" class="btn-maps">📍 Petunjuk Lokasi</a>
-</section>
-
-<!-- Galeri -->
-<section id="galeri" class="section">
-  <h2>Galeri</h2>
-  <div class="gallery">
-    <img src="aresequeen.jpg" alt="aresequeen" class="galeri-foto">
-    <img src="foto2.jpg" alt="foto2" class="galeri-foto">
-  </div>
-</section>
-
-<!-- Gift -->
-<section id="gift" class="section">
-  <h2>Wedding Gift</h2>
-  <p>Doa restu Anda merupakan karunia terindah bagi kami.</p>
-  <p>Jika memberi adalah ungkapan tanda kasih, dengan senang hati kami menerima kado secara cashless melalui:</p>
-  <p>Dana: 0852XXXXXXXX</p>
-</section>
-
-<!-- Bottom Navigation -->
-<nav class="bottom-nav">
-  <a href="#home" class="nav-btn active">🏠</a>
-  <a href="#mempelai" class="nav-btn">❤️</a>
-  <a href="#acara" class="nav-btn">📅</a>
-  <a href="#galeri" class="nav-btn">🖼️</a>
-  <a href="#gift" class="nav-btn">🎁</a>
-</nav>
-
-<!-- Musik -->
-<audio id="music" src="musik.mp4" loop></audio>
-
-<!-- Script Musik dan Navigasi -->
-<script>
-  const bukaUndangan = document.getElementById('bukaUndangan');
-  const opening = document.getElementById('opening');
-  const music = document.getElementById('music');
-
-  bukaUndangan.addEventListener('click', () => {
-    opening.style.display = 'none';
-    music.play();
-    window.location.hash = '#home';
-  });
-
-  // Bottom Navigation Active
-  const navLinks = document.querySelectorAll('.nav-btn');
-  window.addEventListener('hashchange', () => {
-    const current = window.location.hash;
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === current) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  });
-
-  // Nama dari URL
-  function getQueryParam(param) {
-    const params = new URLSearchParams(window.location.search);
-    return params.get(param);
-  }
-
-  const nama = getQueryParam('to');
-  const namaTamu = document.getElementById('namaTamu');
-  if (nama) {
-    namaTamu.innerText = decodeURIComponent(nama.replace(/\+/g, ' '));
-  } else {
-    namaTamu.innerText = 'Tamu Undangan';
-  }
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
