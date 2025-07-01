@@ -125,7 +125,7 @@
     <img src="music-icon.png" alt="Toggle Music" id="musicIcon">
   </button>
   <audio id="bgMusic" loop>
-    <source src="musik.mp3" type="audio/mp3">
+    <source src="musik.mp4" type="audio/mp3">
     Browser Anda tidak mendukung audio.
   </audio>
 
@@ -159,10 +159,10 @@
     function toggleMusic() {
       if (isPlaying) {
         bgMusic.pause();
-        musicIcon.src = 'music-icon.png';
+        musicIcon.src = 'iconmusik.png';
       } else {
         bgMusic.play();
-        musicIcon.src = 'music-icon-playing.png';
+        musicIcon.src = 'iconmusik.png';
       }
       isPlaying = !isPlaying;
     }
