@@ -16,7 +16,8 @@
     html, body {
       width: 100%; height: 100%;
       font-family: 'Alike', serif;
-      overflow: hidden;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
     video#bgVideo {
       position: fixed; top: 0; left: 0;
@@ -31,17 +32,17 @@
       min-height: 100vh; padding: 1.5rem;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
       background: rgba(0, 0, 0, 0.15);
-      position: absolute; top: 0; left: 0;
-      width: 100%; transition: opacity 1s ease;
+      position: relative;
     }
     .hidden { display: none; }
-    .circle-photo {
-      width: 60vw; max-width: 240px;
-      aspect-ratio: 1/1;
-      border-radius: 50%; overflow: hidden;
+    .oval-photo {
+      width: 50vw; max-width: 300px;
+      aspect-ratio: 3 / 4;
+      border-radius: 50% / 40%;
+      overflow: hidden;
       margin-bottom: 1rem; border: 4px solid #fff;
     }
-    .circle-photo img {
+    .oval-photo img {
       width: 100%; height: 100%; object-fit: cover;
     }
     .title {
@@ -81,8 +82,9 @@
       cursor: pointer; z-index: 10;
     }
     .music-toggle img { width: 30px; height: 30px; }
-    .slide { opacity: 0; z-index: -1; }
-    .slide.active { opacity: 1; z-index: 1; }
+    section.slide {
+      scroll-snap-align: start;
+    }
     .slide .text1 {
       font-family: 'Alike', serif;
       font-size: 6vw; margin-bottom: 0.5rem;
@@ -106,8 +108,26 @@
     }
     .nav-fixed a {
       color: white; font-size: 1.2rem; text-align: center;
+      text-decoration: none;
     }
     .nav-fixed a i { display: block; font-size: 1.5rem; }
+    .photo-overlay {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60vw;
+      max-width: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+    .photo-overlay img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
     @keyframes fadeIn {
       from { opacity: 0; } to { opacity: 1; }
     }
@@ -137,48 +157,51 @@
     <source src="musik.mp4" type="audio/mp3">
   </audio>
 
-  <div class="container" id="openingSlide">
-    <div class="circle-photo">
+  <section class="container" id="openingSlide">
+    <div class="photo-overlay">
+      <img src="foto-pengantin-home.jpg" alt="Foto Pengantin">
+    </div>
+    <div class="oval-photo">
       <img src="andi-yuli.jpg" alt="Foto Andi & Yuli">
     </div>
     <div class="title">Wedding Invitation</div>
     <div class="names">Andi & Yuli</div>
     <div class="to">Kepada Yth:</div>
     <div class="guest-name" id="guestName">Bapak/Ibu/Saudara/i</div>
-    <button class="open-button" onclick="openInvitation()">💌 Buka Undangan</button>
-  </div>
+    <button class="open-button" onclick="document.getElementById('homeSlide').scrollIntoView({ behavior: 'smooth' })">💌 Buka Undangan</button>
+  </section>
 
-  <div class="slide" id="homeSlide">
+  <section class="slide" id="homeSlide">
     <div class="text1">The Wedding of</div>
     <div class="text2">Yuli & Andi</div>
     <div class="text3">22 September 2025</div>
-  </div>
+  </section>
 
-  <div class="slide" id="perkenalanSlide">
+  <section class="slide" id="perkenalanSlide">
     <h2 style="font-family: 'Amsterdam One'; font-size: 6vw;">Bride & Groom</h2>
     <img src="basmalah.png" alt="Basmalah" style="width: 200px; margin: 10px auto;">
     <p style="font-family: 'Bricolage Grotesque'; font-size: 4vw;">Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
     <p style="font-family: 'Bricolage Grotesque'; font-size: 4vw;">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami:</p>
-    <div class="circle-photo"><img src="yuli.jpg" alt="Yuliani"></div>
+    <div class="oval-photo"><img src="yuli.jpg" alt="Yuliani"></div>
     <h3 style="font-family: 'Alike';">Yuliani</h3>
     <p style="font-family: 'Alike';">Putri dari</p>
     <p style="font-family: 'Alike';">Bapak Maman & Ibu Entar</p>
     <p><img src="ig-icon.png" alt="Instagram" style="width:20px; vertical-align: middle;"> @yuliani_ig</p>
     <div style="font-family: 'Amsterdam One'; font-size: 3vw;">&</div>
-    <div class="circle-photo"><img src="andi.jpg" alt="Andi"></div>
+    <div class="oval-photo"><img src="andi.jpg" alt="Andi"></div>
     <h3 style="font-family: 'Alike';">Andi</h3>
     <p style="font-family: 'Alike';">Putra dari</p>
     <p style="font-family: 'Alike';">Bapak Agus Setiawan & Ibu Oom Rohmah</p>
     <p><img src="ig-icon.png" alt="Instagram" style="width:20px; vertical-align: middle;"> @andi_ig</p>
     <img src="ayat.png" alt="Ayat Qur'an" style="width: 90%; margin-top: 20px;">
-  </div>
+  </section>
 
   <div class="nav-fixed">
-    <a href="#" onclick="showSlide('homeSlide')"><i class="fas fa-home"></i><span>Home</span></a>
-    <a href="#" onclick="showSlide('perkenalanSlide')"><i class="fas fa-user-friends"></i><span>Perkenalan</span></a>
-    <a href="#" onclick="showSlide('waktuSlide')"><i class="fas fa-calendar-alt"></i><span>Waktu</span></a>
-    <a href="#" onclick="showSlide('galeriSlide')"><i class="fas fa-images"></i><span>Galeri</span></a>
-    <a href="#" onclick="showSlide('giftSlide')"><i class="fas fa-gift"></i><span>Gift</span></a>
+    <a href="#homeSlide"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="#perkenalanSlide"><i class="fas fa-user-friends"></i><span>Perkenalan</span></a>
+    <a href="#waktuSlide"><i class="fas fa-calendar-alt"></i><span>Waktu</span></a>
+    <a href="#galeriSlide"><i class="fas fa-images"></i><span>Galeri</span></a>
+    <a href="#giftSlide"><i class="fas fa-gift"></i><span>Gift</span></a>
   </div>
 
   <script>
@@ -199,16 +222,6 @@
         musicIcon.src = 'logomusikplay.png';
       }
       isPlaying = !isPlaying;
-    }
-    function openInvitation() {
-      document.getElementById('openingSlide').classList.add('hidden');
-      showSlide('homeSlide');
-    }
-    function showSlide(id) {
-      const slides = document.querySelectorAll('.slide');
-      slides.forEach(slide => slide.classList.remove('active'));
-      const target = document.getElementById(id);
-      if (target) target.classList.add('active');
     }
   </script>
 </body>
