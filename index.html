@@ -86,6 +86,21 @@
     .open-button:hover {
       background-color: #b47a47;
     }
+    .music-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .music-toggle img {
+      width: 30px;
+      height: 30px;
+    }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -106,6 +121,14 @@
     Browser Anda tidak mendukung video latar.
   </video>
 
+  <button class="music-toggle" onclick="toggleMusic()">
+    <img src="music-icon.png" alt="Toggle Music" id="musicIcon">
+  </button>
+  <audio id="bgMusic" loop>
+    <source src="musik.mp3" type="audio/mp3">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
   <div class="container">
     <div class="circle-photo">
       <img src="andi-yuli.jpg" alt="Foto Andi & Yuli">
@@ -121,13 +144,27 @@
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('to');
     const guestNameEl = document.getElementById('guestName');
-
     if (namaTamu) {
       guestNameEl.textContent = decodeURIComponent(namaTamu);
     }
 
     function openInvitation() {
       alert("Terima kasih telah membuka undangan kami.");
+    }
+
+    const bgMusic = document.getElementById('bgMusic');
+    const musicIcon = document.getElementById('musicIcon');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicIcon.src = 'music-icon.png';
+      } else {
+        bgMusic.play();
+        musicIcon.src = 'music-icon-playing.png';
+      }
+      isPlaying = !isPlaying;
     }
   </script>
 </body>
