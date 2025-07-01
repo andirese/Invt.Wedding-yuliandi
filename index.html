@@ -38,9 +38,9 @@
       height: 100vh;
     }
     .circle-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
+      width: 240px;
+      height: 320px;
+      border-radius: 50% / 40%;
       overflow: hidden;
       margin-bottom: 1rem;
       border: 4px solid #fff;
@@ -117,21 +117,21 @@
 </head>
 <body>
   <video autoplay muted loop id="bgVideo">
-    <source src="background.mp4" type="video/mp4">
+    <source src="video-latar.mp4" type="video/mp4">
     Browser Anda tidak mendukung video latar.
   </video>
 
   <button class="music-toggle" onclick="toggleMusic()">
-    <img src="play-button.png" alt="Toggle Music" id="musicIcon">
+    <img src="music-icon.png" alt="Toggle Music" id="musicIcon">
   </button>
   <audio id="bgMusic" loop>
-    <source src="musik.mp4" type="audio/mp3">
+    <source src="musik-latar.mp3" type="audio/mp3">
     Browser Anda tidak mendukung audio.
   </audio>
 
   <div class="container">
     <div class="circle-photo">
-      <img src="andi-yuli.jpg" alt="Foto Andi & Yuli">
+      <img src="foto-andi-yuli.jpg" alt="Foto Andi & Yuli">
     </div>
     <div class="title">Wedding Invitation</div>
     <div class="names">Andi & Yuli</div>
@@ -159,10 +159,10 @@
     function toggleMusic() {
       if (isPlaying) {
         bgMusic.pause();
-        musicIcon.src = 'logomusiknonplay.png';
+        musicIcon.src = 'music-icon.png';
       } else {
         bgMusic.play();
-        musicIcon.src = 'logomusikplay.png';
+        musicIcon.src = 'music-icon-playing.png';
       }
       isPlaying = !isPlaying;
     }
