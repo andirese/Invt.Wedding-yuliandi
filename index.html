@@ -3,239 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Undangan Yuli & Andi</title>
+  <title>Undangan Pernikahan Andi & Yuli</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Amsterdam+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Amsterdam+One&family=Alike&family=Bricolage+Grotesque&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      width:100%; height:100%;
-      font-family:'Poppins', sans-serif;
-      scroll-behavior:smooth;
-      overflow-x:hidden;
-      background:#000;
+      width: 100%; height: 100%;
+      font-family: 'Alike', serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
     video#bgVideo {
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      object-fit:cover;
-      z-index:-3;
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -3;
+    }
+    .container, .slide {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; color: white;
+      min-height: 100vh; padding: 1.5rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 1;
     }
     .background-overlay {
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: url('foto aresequeen.jpg') center/cover no-repeat;
-      opacity:0.1;
-      z-index:-2;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url('foto aresequeen.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: -2;
+      animation: fadeIn 2s ease-in-out;
     }
-    section {
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      min-height:100vh;
-      padding:1.5rem;
-      color:white;
-      position:relative;
-    }
+    .hidden { display: none; }
     .oval-photo {
-      width:50vw; max-width:280px;
-      aspect-ratio:3/4;
-      border-radius:50%/40%;
-      overflow:hidden;
-      border:4px solid #fff;
-      margin-bottom:1rem;
+      width: 50vw; max-width: 300px;
+      aspect-ratio: 3 / 4;
+      border-radius: 50% / 40%;
+      overflow: hidden;
+      margin-bottom: 1rem; border: 4px solid #fff;
+      animation: zoomIn 1.5s ease;
     }
     .oval-photo img {
-      width:100%;
-      height:100%;
-      object-fit:cover;
+      width: 100%; height: 100%; object-fit: cover;
+      animation: fadeInUp 2s ease;
     }
-    .title {font-size:6vw;}
+    .title {
+      font-family: 'Alike', serif;
+      font-size: 6vw; margin-bottom: 0.5rem;
+      animation: fadeIn 2s ease-in;
+    }
     .names {
-      font-family:'Amsterdam One', cursive;
-      font-size:5vw;
-      margin-bottom:1rem;
+      font-family: 'Amsterdam One', cursive;
+      font-size: 5.5vw;
+      margin-bottom: 1rem;
+      animation: fadeInUp 2s ease-out;
     }
-    .to, .guest-name {font-size:4vw;}
-    .guest-name {font-family:'Great Vibes', cursive;}
+    .to {
+      font-size: 4vw; margin-bottom: 0.5rem;
+      animation: slideInLeft 2s ease-in;
+    }
+    .guest-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4.5vw;
+      margin-bottom: 1rem;
+      animation: zoomIn 3s ease-in-out;
+    }
     .open-button {
-      background-color:#9b6b3e;
-      color:#fff;
-      padding:10px 24px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      transition:0.3s;
+      background-color: #9b6b3e; color: #fff;
+      padding: 0.75rem 2rem; border: none;
+      font-size: 1rem; border-radius: 8px;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      transition: background 0.3s;
     }
-    .open-button:hover {background:#b47a47;}
+    .open-button:hover { background-color: #b47a47; }
     .music-toggle {
-      position:fixed;
-      top:20px;right:20px;
-      background:rgba(255,255,255,0.7);
-      border:none;
-      border-radius:50%;
-      padding:10px;
-      cursor:pointer;z-index:10;
+      position: fixed; top: 20px; right: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border: none; border-radius: 50%; padding: 10px;
+      cursor: pointer; z-index: 10;
     }
-    .music-toggle img {width:30px;height:30px;}
+    .music-toggle img { width: 30px; height: 30px; }
+    section.slide {
+      scroll-snap-align: start;
+    }
+    .slide .text1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 6vw; margin-bottom: 0.5rem;
+      animation: slideInLeft 1.5s ease-out;
+    }
+    .slide .text2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 8vw; margin-bottom: 0.5rem;
+      animation: zoomIn 2s ease-out;
+    }
+    .slide .text3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 5vw;
+      animation: slideInRight 2s ease-in;
+    }
     .nav-fixed {
-      position:fixed;
-      bottom:0;
-      width:100%;
-      background:rgba(0,0,0,0.4);
-      display:flex;
-      justify-content:space-around;
-      padding:8px 0;
-      z-index:99;
+      position: fixed; bottom: 0; width: 100%;
+      background: rgba(0,0,0,0.3);
+      display: flex; justify-content: space-around;
+      padding: 10px 0; z-index: 99;
     }
     .nav-fixed a {
-      color:white;
-      text-decoration:none;
-      text-align:center;
-      font-size:0.8rem;
+      color: white; font-size: 1rem; text-align: center;
+      text-decoration: none;
     }
     .nav-fixed a i {
-      display:block;
-      font-size:1.5rem;
+      display: block; font-size: 1.5rem; margin-bottom: 5px;
     }
-    /* Animasi Scroll */
-    .animate {
-      opacity:0;
-      transform:translateY(30px);
-      transition:opacity 1s ease, transform 1s ease;
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
     }
-    .animate.active {
-      opacity:1;
-      transform:translateY(0);
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
-
 <body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="background.mp4" type="video/mp4">
+  </video>
 
-<!-- Video -->
-<video autoplay muted loop id="bgVideo">
-  <source src="background.mp4" type="video/mp4">
-</video>
-
-<!-- Musik -->
-<button class="music-toggle" onclick="toggleMusic()">
-  <img src="logomusikawal.png" alt="Music" id="musicIcon">
-</button>
-<audio id="bgMusic" loop>
-  <source src="musik.mp4" type="audio/mp3">
-</audio>
-
-<!-- HOME -->
-<section id="homeSlide">
-  <div class="background-overlay"></div>
-  <div class="oval-photo animate"><img src="andi-yuli.jpg" alt="Foto"></div>
-  <div class="title animate">Wedding Invitation</div>
-  <div class="names animate">Yuli & Andi</div>
-  <div class="to animate">Kepada Yth:</div>
-  <div class="guest-name animate" id="guestName">Bapak/Ibu/Saudara/i</div>
-  <button class="open-button animate" onclick="document.getElementById('perkenalanSlide').scrollIntoView({behavior:'smooth'})">
-    💌 Buka Undangan
+  <button class="music-toggle" onclick="toggleMusic()">
+    <img src="logomusikawal.png" alt="Music" id="musicIcon">
   </button>
-</section>
+  <audio id="bgMusic" loop>
+    <source src="musik.mp4" type="audio/mp3">
+  </audio>
 
-<!-- PERKENALAN -->
-<section class="slide" id="perkenalanSlide">
-  <div class="background-overlay"></div>
-  
-  <h2 class="animate">Bride & Groom</h2>
-  <img src="basmalah.png" alt="Basmalah" class="animate" style="width:200px; margin:10px auto;">
-  
-  <p class="animate">
-    Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.
-  </p>
-  <p class="animate">
-    Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami:
-  </p>
+  <!-- SECTION HOME -->
+  <section class="container" id="homeSlide">
+    <div class="background-overlay"></div>
+    <div class="oval-photo">
+      <img src="andi-yuli.jpg" alt="Foto Andi & Yuli">
+    </div>
+    <div class="title">Wedding Invitation</div>
+    <div class="names">Andi & Yuli</div>
+    <div class="to">Kepada Yth:</div>
+    <div class="guest-name" id="guestName">Bapak/Ibu/Saudara/i</div>
+    <button class="open-button" onclick="document.getElementById('perkenalanSlide').scrollIntoView({ behavior: 'smooth' })">💌 Buka Undangan</button>
+  </section>
 
-  <!-- Yuliani -->
-  <div class="oval-photo animate">
-    <img src="kenalan yuli.jpeg" alt="Yuliani">
+  <!-- SECTION PERKENALAN -->
+  <section class="slide" id="perkenalanSlide">
+    <div class="background-overlay"></div>
+    <h2 style="font-family: 'Poppins', sans-serif; font-size: 6vw; animation: fadeIn 1s ease-in;">Bride & Groom</h2>
+    <img src="basmalah.png" alt="Basmalah" style="width: 200px; margin: 10px auto; animation: zoomIn 1s ease-in-out;">
+    <p style="font-family: 'Poppins', sans-serif; font-size: 4vw; animation: fadeIn 1.2s ease-in;">Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
+    <p style="font-family: 'Poppins', sans-serif; font-size: 4vw; animation: fadeIn 1.5s ease-in;">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami:</p>
+    <div class="oval-photo"><img src="kenalan yuli.jpeg" alt="Yuliani"></div>
+    <h3 style="font-family: 'Poppins', sans-serif; animation: fadeInUp 1.5s ease-out;">Yuliani</h3>
+    <p style="font-family: 'Poppins', sans-serif;">Putri dari</p>
+    <p style="font-family: 'Poppins', sans-serif;">Bapak Maman & Ibu Entar</p>
+    <p><img src="instagram.png" alt="Instagram" style="width:20px; vertical-align: middle;">_yulii14_</p>
+    <div style="font-family: 'Amsterdam One'; font-size: 3vw; animation: fadeIn 2s ease-in;">&</div>
+    <div class="oval-photo"><img src="kenalan andi.jpg" alt="Andi"></div>
+    <h3 style="font-family: 'Poppins', sans-serif; animation: fadeInUp 1.5s ease-out;">Andi</h3>
+    <p style="font-family: 'Poppins', sans-serif;">Putra dari</p>
+    <p style="font-family: 'Poppins', sans-serif;">Bapak Agus Setiawan & Ibu Oom Rohmah</p>
+    <p><img src="instagram.png" alt="Instagram" style="width:20px; vertical-align: middle;">andirese_15</p>
+    <img src="ayat.png" alt="Ayat Qur'an" style="width: 90%; margin-top: 20px; animation: fadeIn 2s ease-in;">
+  </section>
+
+  <div class="nav-fixed">
+    <a href="#homeSlide"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="#perkenalanSlide"><i class="fas fa-user-friends"></i><span>Perkenalan</span></a>
+    <a href="#waktuSlide"><i class="fas fa-calendar-alt"></i><span>Waktu</span></a>
+    <a href="#galeriSlide"><i class="fas fa-images"></i><span>Galeri</span></a>
+    <a href="#giftSlide"><i class="fas fa-gift"></i><span>Gift</span></a>
   </div>
-  <h3 class="animate">Yuliani</h3>
-  <p class="animate">Putri dari</p>
-  <p class="animate">Bapak Maman & Ibu Entar</p>
-  <p class="animate">
-    <img src="instagram.png" alt="Instagram" style="width:20px; vertical-align:middle;">
-    _yulii14_
-  </p>
 
-  <div class="animate" style="font-family:'Amsterdam One'; font-size:3vw;">&</div>
-
-  <!-- Andi -->
-  <div class="oval-photo animate">
-    <img src="kenalan andi.jpg" alt="Andi">
-  </div>
-  <h3 class="animate">Andi</h3>
-  <p class="animate">Putra dari</p>
-  <p class="animate">Bapak Agus Setiawan & Ibu Oom Rohmah</p>
-  <p class="animate">
-    <img src="instagram.png" alt="Instagram" style="width:20px; vertical-align:middle;">
-    andirese_15
-  </p>
-
-  <img src="ayat.png" alt="Ayat Qur'an" class="animate" style="width:90%; margin-top:20px;">
-</section>
-
-<!-- NAVIGATION -->
-<div class="nav-fixed">
-  <a href="#homeSlide"><i class="fas fa-home"></i><span>Home</span></a>
-  <a href="#perkenalanSlide"><i class="fas fa-user-friends"></i><span>Perkenalan</span></a>
-</div>
-
-<!-- SCRIPT -->
-<script>
-  // Nama Tamu Otomatis
-  const urlParams = new URLSearchParams(window.location.search);
-  const namaTamu = urlParams.get('to');
-  if(namaTamu){
-    document.getElementById('guestName').textContent = decodeURIComponent(namaTamu);
-  }
-
-  // Musik
-  const bgMusic = document.getElementById('bgMusic');
-  const musicIcon = document.getElementById('musicIcon');
-  let isPlaying = false;
-  function toggleMusic() {
-    if(isPlaying){
-      bgMusic.pause();
-      musicIcon.src='logomusiknonplay.png';
-    }else{
-      bgMusic.play();
-      musicIcon.src='logomusikplay.png';
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const namaTamu = urlParams.get('to');
+    if (namaTamu) {
+      document.getElementById('guestName').textContent = decodeURIComponent(namaTamu);
     }
-    isPlaying = !isPlaying;
-  }
-
-  // Animasi Scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('active');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicIcon = document.getElementById('musicIcon');
+    let isPlaying = false;
+    function toggleMusic() {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicIcon.src = 'logomusiknonplay.png';
+      } else {
+        bgMusic.play();
+        musicIcon.src = 'logomusikplay.png';
       }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  document.querySelectorAll('.animate').forEach(el => {
-    observer.observe(el);
-  });
-</script>
-
+      isPlaying = !isPlaying;
+    }
+  </script>
 </body>
 </html>
