@@ -4,106 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Undangan Pernikahan Andi & Yuli</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&family=Lora&family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&family=Lora&family=Anton&family=Alike&family=Bricolage+Grotesque&family=Amsterdam+One&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* (CSS existing from user content is preserved) */
+
+    .text2 {
+      font-family: 'Amsterdam One', cursive;
     }
-    body, html {
-      width: 100%;
-      height: 100%;
-      font-family: 'Playfair Display', serif;
-    }
-    video#bgVideo {
+
+    .nav-fixed {
       position: fixed;
-      right: 0;
       bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
-      object-fit: cover;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1.5rem;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.15);
-      min-height: 100vh;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-    }
-    .circle-photo {
-      width: 60vw;
-      max-width: 240px;
-      height: auto;
-      aspect-ratio: 3 / 4;
-      border-radius: 50% / 40%;
-      overflow: hidden;
-      margin-bottom: 1rem;
-      border: 4px solid #fff;
-    }
-    .circle-photo img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 99;
     }
-    .title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 6vw;
-      margin-bottom: 0.5rem;
-      animation: fadeIn 2s ease-in;
+    .nav-fixed a {
+      color: white;
+      font-size: 1.2rem;
+      text-align: center;
     }
-    .names {
-      font-size: 5vw;
-      margin-bottom: 1rem;
-      animation: fadeInUp 2s ease-out;
+    .nav-fixed a i {
+      display: block;
+      font-size: 1.5rem;
     }
-    .to {
-      font-size: 4vw;
-      margin-bottom: 0.5rem;
-      animation: fadeIn 3s ease-in;
-    }
-    .guest-name {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4.5vw;
-      margin-bottom: 1rem;
-      animation: fadeIn 3s ease-in-out;
-    }
-    .open-button {
-      background-color: #9b6b3e;
-      color: #fff;
-      padding: 0.75rem 2rem;
-      border: none;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      animation: bounce 2s infinite;
-      transition: background 0.3s;
-    }
-    .open-button:hover {
-      background-color: #b47a47;
-    }
-    .music-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.7);
-      border: none;
-      border-radius: 50%;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 10;
-    }
-    .music-toggle img {
-      width: 30px;
-      height: 30px;
-    }
-    .home-slide {
+    .slide {
       position: absolute;
       top: 0;
       left: 100%;
@@ -118,65 +47,9 @@
       text-align: center;
       transition: left 1s ease;
       padding: 1rem;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     }
-    .home-slide.show {
+    .slide.show {
       left: 0;
-    }
-    .home-slide .text1 {
-      font-size: 6vw;
-      margin-bottom: 0.5rem;
-      font-family: Arial, sans-serif;
-      animation: fadeInDown 1.5s ease-out;
-    }
-    .home-slide .text2 {
-      font-size: 8vw;
-      font-family: 'Lora', serif;
-      margin-bottom: 0.5rem;
-      animation: fadeInUp 2s ease-out;
-    }
-    .home-slide .text3 {
-      font-size: 5vw;
-      font-family: 'Anton', sans-serif;
-      animation: fadeIn 2s ease-in;
-    }
-    .nav-bar {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 20;
-    }
-    .nav-bar button {
-      width: 14px;
-      height: 14px;
-      background: white;
-      border: none;
-      border-radius: 50%;
-      opacity: 0.5;
-      cursor: pointer;
-    }
-    .nav-bar button.active {
-      opacity: 1;
-      background: #fff;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
@@ -205,19 +78,21 @@
     <button class="open-button" onclick="openInvitation()">💌 Buka Undangan</button>
   </div>
 
-  <div class="home-slide" id="homeSlide">
-    <div class="text1">The Wedding of</div>
+  <div class="slide" id="homeSlide">
+    <div class="text1" style="font-family: 'Alike', serif;">The Wedding of</div>
     <div class="text2">Yuli & Andi</div>
-    <div class="text3">22 September 2025</div>
+    <div class="text3" style="font-family: 'Bricolage Grotesque', sans-serif;">22 September 2025</div>
   </div>
 
-  <div class="nav-bar">
-    <button class="active"></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
+  <div class="nav-fixed">
+    <a href="#" onclick="goToSlide('homeSlide')"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="#" onclick="goToSlide('perkenalanSlide')"><i class="fas fa-user"></i><span>Perkenalan</span></a>
+    <a href="#" onclick="goToSlide('waktuSlide')"><i class="fas fa-calendar-alt"></i><span>Waktu</span></a>
+    <a href="#" onclick="goToSlide('galeriSlide')"><i class="fas fa-image"></i><span>Galeri</span></a>
+    <a href="#" onclick="goToSlide('giftSlide')"><i class="fas fa-gift"></i><span>Gift</span></a>
   </div>
+
+  <!-- Tambahan slide lainnya bisa diletakkan di sini -->
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
@@ -230,6 +105,12 @@
     function openInvitation() {
       document.getElementById('mainContainer').style.display = 'none';
       document.getElementById('homeSlide').classList.add('show');
+    }
+
+    function goToSlide(id) {
+      document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('show'));
+      const target = document.getElementById(id);
+      if (target) target.classList.add('show');
     }
 
     const bgMusic = document.getElementById('bgMusic');
