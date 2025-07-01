@@ -43,8 +43,9 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      opacity: 0.4;
+      opacity: 0.2;
       z-index: -2;
+      animation: fadeIn 2s ease-in-out;
     }
     .hidden { display: none; }
     .oval-photo {
@@ -57,6 +58,7 @@
     }
     .oval-photo img {
       width: 100%; height: 100%; object-fit: cover;
+      animation: fadeInUp 2s ease;
     }
     .title {
       font-family: 'Alike', serif;
@@ -71,13 +73,13 @@
     }
     .to {
       font-size: 4vw; margin-bottom: 0.5rem;
-      animation: fadeIn 3s ease-in;
+      animation: slideInLeft 2s ease-in;
     }
     .guest-name {
       font-family: 'Great Vibes', cursive;
       font-size: 4.5vw;
       margin-bottom: 1rem;
-      animation: fadeIn 3s ease-in-out;
+      animation: zoomIn 3s ease-in-out;
     }
     .open-button {
       background-color: #9b6b3e; color: #fff;
@@ -99,19 +101,20 @@
       scroll-snap-align: start;
     }
     .slide .text1 {
-      font-family: 'Alike', serif;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
       font-size: 6vw; margin-bottom: 0.5rem;
-      animation: fadeInDown 1.5s ease-out;
+      animation: slideInLeft 1.5s ease-out;
     }
     .slide .text2 {
-      font-family: 'Amsterdam One', cursive;
+      font-family: 'Great Vibes', cursive;
       font-size: 8vw; margin-bottom: 0.5rem;
-      animation: fadeInUp 2s ease-out;
+      animation: zoomIn 2s ease-out;
     }
     .slide .text3 {
-      font-family: 'Bricolage Grotesque', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 5vw;
-      animation: fadeIn 2s ease-in;
+      animation: slideInRight 2s ease-in;
     }
     .nav-fixed {
       position: fixed; bottom: 0; width: 100%;
@@ -133,9 +136,13 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(100px); }
+      to { opacity: 1; transform: translateX(0); }
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
