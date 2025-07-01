@@ -6,7 +6,7 @@
   <title>Undangan Pernikahan Andi & Yuli</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Amsterdam+One&family=Alike&family=Bricolage+Grotesque&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Amsterdam+One&family=Alike&family=Bricolage+Grotesque&display=swap" rel="stylesheet">
 
   <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -23,7 +23,7 @@
       position: fixed; top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      z-index: -2;
+      z-index: -3;
     }
     .container, .slide {
       display: flex; flex-direction: column;
@@ -33,6 +33,18 @@
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
       background: rgba(0, 0, 0, 0.15);
       position: relative;
+      z-index: 1;
+    }
+    .home-bg-image {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url('foto aresequeen.jpg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      opacity: 0.5;
+      z-index: -2;
     }
     .hidden { display: none; }
     .oval-photo {
@@ -61,7 +73,7 @@
       animation: fadeIn 3s ease-in;
     }
     .guest-name {
-      font-family: 'Amsterdam One', cursive;
+      font-family: 'Great Vibes', cursive;
       font-size: 4.5vw;
       margin-bottom: 1rem;
       animation: fadeIn 3s ease-in-out;
@@ -111,23 +123,6 @@
       text-decoration: none;
     }
     .nav-fixed a i { display: block; font-size: 1.5rem; }
-    .photo-overlay {
-      position: absolute;
-      top: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60vw;
-      max-width: 400px;
-      border-radius: 20px;
-      overflow: hidden;
-      z-index: 1;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
-    .photo-overlay img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
     @keyframes fadeIn {
       from { opacity: 0; } to { opacity: 1; }
     }
@@ -158,9 +153,7 @@
   </audio>
 
   <section class="container" id="openingSlide">
-    <div class="photo-overlay">
-      <img src="foto aresequeen.jpg" alt="Foto Pengantin">
-    </div>
+    <div class="home-bg-image"></div>
     <div class="oval-photo">
       <img src="andi-yuli.jpg" alt="Foto Andi & Yuli">
     </div>
@@ -175,25 +168,6 @@
     <div class="text1">The Wedding of</div>
     <div class="text2">Yuli & Andi</div>
     <div class="text3">22 September 2025</div>
-  </section>
-
-  <section class="slide" id="perkenalanSlide">
-    <h2 style="font-family: 'Amsterdam One'; font-size: 6vw;">Bride & Groom</h2>
-    <img src="basmalah.png" alt="Basmalah" style="width: 200px; margin: 10px auto;">
-    <p style="font-family: 'Bricolage Grotesque'; font-size: 4vw;">Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
-    <p style="font-family: 'Bricolage Grotesque'; font-size: 4vw;">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami:</p>
-    <div class="oval-photo"><img src="yuli.jpg" alt="Yuliani"></div>
-    <h3 style="font-family: 'Alike';">Yuliani</h3>
-    <p style="font-family: 'Alike';">Putri dari</p>
-    <p style="font-family: 'Alike';">Bapak Maman & Ibu Entar</p>
-    <p><img src="ig-icon.png" alt="Instagram" style="width:20px; vertical-align: middle;"> @yuliani_ig</p>
-    <div style="font-family: 'Amsterdam One'; font-size: 3vw;">&</div>
-    <div class="oval-photo"><img src="andi.jpg" alt="Andi"></div>
-    <h3 style="font-family: 'Alike';">Andi</h3>
-    <p style="font-family: 'Alike';">Putra dari</p>
-    <p style="font-family: 'Alike';">Bapak Agus Setiawan & Ibu Oom Rohmah</p>
-    <p><img src="ig-icon.png" alt="Instagram" style="width:20px; vertical-align: middle;"> @andi_ig</p>
-    <img src="ayat.png" alt="Ayat Qur'an" style="width: 90%; margin-top: 20px;">
   </section>
 
   <div class="nav-fixed">
