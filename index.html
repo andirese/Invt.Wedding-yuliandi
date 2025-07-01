@@ -6,7 +6,7 @@
   <title>Undangan Pernikahan Andi & Yuli</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Amsterdam+One&family=Alike&family=Bricolage+Grotesque&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Amsterdam+One&family=Alike&family=Bricolage+Grotesque&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -41,9 +41,9 @@
       width: 100%; height: 100%;
       background-image: url('foto aresequeen.jpg');
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       background-position: center;
-      opacity: 0.5;
+      opacity: 0.4;
       z-index: -2;
     }
     .hidden { display: none; }
@@ -53,6 +53,7 @@
       border-radius: 50% / 40%;
       overflow: hidden;
       margin-bottom: 1rem; border: 4px solid #fff;
+      animation: zoomIn 1.5s ease;
     }
     .oval-photo img {
       width: 100%; height: 100%; object-fit: cover;
@@ -119,10 +120,12 @@
       padding: 10px 0; z-index: 99;
     }
     .nav-fixed a {
-      color: white; font-size: 1.2rem; text-align: center;
+      color: white; font-size: 1rem; text-align: center;
       text-decoration: none;
     }
-    .nav-fixed a i { display: block; font-size: 1.5rem; }
+    .nav-fixed a i {
+      display: block; font-size: 1.5rem; margin-bottom: 5px;
+    }
     @keyframes fadeIn {
       from { opacity: 0; } to { opacity: 1; }
     }
@@ -138,6 +141,10 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -152,7 +159,8 @@
     <source src="musik.mp4" type="audio/mp3">
   </audio>
 
-  <section class="container" id="openingSlide">
+  <!-- SECTION HOME -->
+  <section class="container" id="homeSlide">
     <div class="background-overlay"></div>
     <div class="oval-photo">
       <img src="andi-yuli.jpg" alt="Foto Andi & Yuli">
@@ -161,34 +169,28 @@
     <div class="names">Andi & Yuli</div>
     <div class="to">Kepada Yth:</div>
     <div class="guest-name" id="guestName">Bapak/Ibu/Saudara/i</div>
-    <button class="open-button" onclick="document.getElementById('homeSlide').scrollIntoView({ behavior: 'smooth' })">💌 Buka Undangan</button>
+    <button class="open-button" onclick="document.getElementById('perkenalanSlide').scrollIntoView({ behavior: 'smooth' })">💌 Buka Undangan</button>
   </section>
 
-  <section class="slide" id="homeSlide">
-    <div class="background-overlay"></div>
-    <div class="text1">The Wedding of</div>
-    <div class="text2">Yuli & Andi</div>
-    <div class="text3">22 September 2025</div>
-  </section>
-
+  <!-- SECTION PERKENALAN -->
   <section class="slide" id="perkenalanSlide">
     <div class="background-overlay"></div>
-    <h2 style="font-family: 'Amsterdam One'; font-size: 6vw;">Bride & Groom</h2>
-    <img src="basmalah.png" alt="Basmalah" style="width: 200px; margin: 10px auto;">
-    <p style="font-family: 'Bricolage Grotesque'; font-size: 4vw;">Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
-    <p style="font-family: 'Bricolage Grotesque'; font-size: 4vw;">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami:</p>
+    <h2 style="font-family: 'Poppins', sans-serif; font-size: 6vw; animation: fadeIn 1s ease-in;">Bride & Groom</h2>
+    <img src="basmalah.png" alt="Basmalah" style="width: 200px; margin: 10px auto; animation: zoomIn 1s ease-in-out;">
+    <p style="font-family: 'Poppins', sans-serif; font-size: 4vw; animation: fadeIn 1.2s ease-in;">Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
+    <p style="font-family: 'Poppins', sans-serif; font-size: 4vw; animation: fadeIn 1.5s ease-in;">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan kami:</p>
     <div class="oval-photo"><img src="kenalan yuli.jpeg" alt="Yuliani"></div>
-    <h3 style="font-family: 'Alike';">Yuliani</h3>
-    <p style="font-family: 'Alike';">Putri dari</p>
-    <p style="font-family: 'Alike';">Bapak Maman & Ibu Entar</p>
+    <h3 style="font-family: 'Poppins', sans-serif; animation: fadeInUp 1.5s ease-out;">Yuliani</h3>
+    <p style="font-family: 'Poppins', sans-serif;">Putri dari</p>
+    <p style="font-family: 'Poppins', sans-serif;">Bapak Maman & Ibu Entar</p>
     <p><img src="instagram.png" alt="Instagram" style="width:20px; vertical-align: middle;">_yulii14_</p>
-    <div style="font-family: 'Amsterdam One'; font-size: 3vw;">&</div>
+    <div style="font-family: 'Amsterdam One'; font-size: 3vw; animation: fadeIn 2s ease-in;">&</div>
     <div class="oval-photo"><img src="kenalan andi.jpg" alt="Andi"></div>
-    <h3 style="font-family: 'Alike';">Andi</h3>
-    <p style="font-family: 'Alike';">Putra dari</p>
-    <p style="font-family: 'Alike';">Bapak Agus Setiawan & Ibu Oom Rohmah</p>
+    <h3 style="font-family: 'Poppins', sans-serif; animation: fadeInUp 1.5s ease-out;">Andi</h3>
+    <p style="font-family: 'Poppins', sans-serif;">Putra dari</p>
+    <p style="font-family: 'Poppins', sans-serif;">Bapak Agus Setiawan & Ibu Oom Rohmah</p>
     <p><img src="instagram.png" alt="Instagram" style="width:20px; vertical-align: middle;">andirese_15</p>
-    <img src="ayat.png" alt="Ayat Qur'an" style="width: 90%; margin-top: 20px;">
+    <img src="ayat.png" alt="Ayat Qur'an" style="width: 90%; margin-top: 20px; animation: fadeIn 2s ease-in;">
   </section>
 
   <div class="nav-fixed">
