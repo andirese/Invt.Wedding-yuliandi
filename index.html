@@ -143,63 +143,33 @@
   max-width: 500px;
   border-radius: 12px;
 }
-  </style>
-   /* Animasi Fade In */
+ /* Animasi Fade In */
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* Animasi Slide In Left */
 @keyframes slideInLeft {
-  0% {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 /* Animasi Slide In Right */
 @keyframes slideInRight {
-  0% {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  0% { transform: translateX(100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
-/* Mengatur animasi untuk elemen */
-#countdown {
-  animation: fadeIn 2s;
-}
-
-.AKAD-NIKAH {
-  animation: slideInLeft 2s;
-}
-
-.tanggal {
-  animation: slideInRight 2s;
-}
-
-.waktu {
-  animation: fadeIn 2s;
-}
-
-.lokasi {
-  animation: slideInLeft 2s;
-}
-
+/* Atur animasi ke elemen */
+#countdown { animation: fadeIn 2s; }
+.AKAD-NIKAH { animation: slideInLeft 2s; }
+.tanggal { animation: slideInRight 2s; }
+.waktu { animation: fadeIn 2s; }
+.lokasi { animation: slideInLeft 2s; }
+</style>
 </head>
+
 <body>
   <video autoplay muted loop id="bgVideo">
     <source src="background.mp4" type="video/mp4">
