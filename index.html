@@ -203,18 +203,35 @@
   <section class="container" id="waktuSlide">
   <div class="title" style="color: #ffd700;">Save the Date</div>
   <div class="bingkai" style="background-color: #9b6b3e; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); color: #ffffff;">
-    <div id="countdown" style="font-size: 24px; margin-bottom: 20px;"></div>
-    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">AKAD NIKAH</div>
-    <div style="font-size: 18px; margin-bottom: 10px;">Minggu, 22 September 2025</div>
-    <div style="font-size: 18px; margin-bottom: 10px;">Pukul 09.00 WIB</div>
-    <div style="font-size: 18px; margin-bottom: 20px;">Bertempat di: Rumah Calon Mempelai Wanita</div>
-    <div style="font-size: 18px; margin-bottom: 20px;">
+    <div id="countdown" style="font-size: 24px; margin-bottom: 20px; animation: fadeIn 2s;"></div>
+    <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px; animation: slideInLeft 2s;">AKAD NIKAH</div>
+    <div style="font-size: 18px; margin-bottom: 10px; animation: slideInRight 2s;">Minggu, 22 September 2025</div>
+    <div style="font-size: 18px; margin-bottom: 10px; animation: fadeIn 2s;">Pukul 09.00 WIB</div>
+    <div style="font-size: 18px; margin-bottom: 20px; animation: slideInLeft 2s;">Bertempat di: Rumah Calon Mempelai Wanita</div>
+    <div style="font-size: 18px; margin-bottom: 20px; animation: fadeIn 2s;">
       <a href="https://www.google.com/maps/dir/?api=1&destination=Rumah+Calon+Mempelai+Wanita" target="_blank" style="text-decoration: none; color: #ffd700;">
         <img src="lokasi.png" alt="Lihat Lokasi" style="width: 20px; height: 20px; margin-right: 10px;"> Lihat Lokasi
       </a>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideInLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slideInRight {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+</style>
 
 <script>
   const weddingDate = new Date("September 22, 2025 09:00:00").getTime();
