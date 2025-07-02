@@ -200,6 +200,36 @@
   </div>
 </section>
 
+  <section class="container" id="waktuSlide">
+  <div class="title" style="color: #ffd700;">Save the Date</div>
+  <div id="countdown" style="font-size: 24px; margin-bottom: 20px;"></div>
+  <div id="calendar" style="font-size: 18px;"></div>
+</section>
+
+<script>
+  const weddingDate = new Date("September 22, 2025 10:00:00").getTime();
+  const countdownElement = document.getElementById("countdown");
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownElement.innerHTML = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+
+    if (distance < 0) {
+      countdownElement.innerHTML = "Waktu pernikahan telah tiba!";
+    }
+  }, 1000);
+
+  const calendarElement = document.getElementById("calendar");
+  calendarElement.innerHTML = `Minggu, 22 September 2025`;
+</script>
+
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('to');
