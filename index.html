@@ -143,6 +143,19 @@
       from { transform: scale(0.8); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
+    .video-wrapper {
+      display: none;
+      z-index: 3;
+      position: relative;
+      pointer-events: auto;
+      width: 90vw;
+      max-width: 600px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem;
+      border-radius: 12px;
+      justify-content: center;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
@@ -188,10 +201,10 @@
 
   <section class="container" id="perkenalanSlide">
     <div class="background-overlay"></div>
-    <div style="z-index: 3; position: relative; pointer-events: auto; width: 90vw; max-width: 600px; background: rgba(0, 0, 0, 0.6); padding: 1rem; border-radius: 12px;">
-      <video id="videoPerkenalan" autoplay muted loop playsinline style="width: 100%; max-height: 80vh; border-radius: 12px;">
+    <div class="video-wrapper" id="videoWrapper">
+      <video id="videoPerkenalan" muted playsinline style="width: 100%; max-height: 80vh; border-radius: 12px;">
         <source src="video-perkenalan.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        Browser tidak mendukung video.
       </video>
     </div>
   </section>
@@ -216,18 +229,22 @@
       isPlaying = !isPlaying;
     }
 
-    // Ensure video only plays on Perkenalan Slide
     const video = document.getElementById('videoPerkenalan');
+    const wrapper = document.getElementById('videoWrapper');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          wrapper.style.display = 'flex';
           video.play();
         } else {
+          wrapper.style.display = 'none';
           video.pause();
         }
       });
-    }, { threshold: 0.5 });
-    observer.observe(video);
+    }, {
+      threshold: 0.6
+    });
+    observer.observe(document.getElementById('perkenalanSlide'));
   </script>
 </body>
 </html>
