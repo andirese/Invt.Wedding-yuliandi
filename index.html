@@ -38,7 +38,7 @@
       width: 100%; height: 100%;
       background-image: url('foto-pengantin-home.jpg');
       background-repeat: no-repeat;
-      background-size: 80% auto; background-repeat: no-repeat;
+      background-size: 80% auto;
       background-position: center;
       opacity: 0.2;
       z-index: -2;
@@ -186,29 +186,15 @@
     <div class="guest-name">Bapak/Ibu/Saudara/i</div>
   </section>
 
-  <section class="container" id="perkenalanSlide" style="position: relative; z-index: 2;">
-  <div class="background-overlay"></div>
-  <div style="z-index: 3; position: relative; pointer-events: auto; width: 90vw; max-width: 600px; background: rgba(0, 0, 0, 0.6); padding: 1rem; border-radius: 12px;">
-    <video autoplay muted loop playsinline style="width: 100%; max-height: 80vh; border-radius: 12px;" id="videoPerkenalan">
-      <source src="video-perkenalan.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</section>
-<script>
-  // Pause video when not in view
-  const video = document.getElementById('videoPerkenalan');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-  }, { threshold: 0.5 });
-  observer.observe(video);
-</script>
+  <section class="container" id="perkenalanSlide">
+    <div class="background-overlay"></div>
+    <div style="z-index: 3; position: relative; pointer-events: auto; width: 90vw; max-width: 600px; background: rgba(0, 0, 0, 0.6); padding: 1rem; border-radius: 12px;">
+      <video id="videoPerkenalan" autoplay muted loop playsinline style="width: 100%; max-height: 80vh; border-radius: 12px;">
+        <source src="video-perkenalan.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
@@ -229,6 +215,19 @@
       }
       isPlaying = !isPlaying;
     }
+
+    // Ensure video only plays on Perkenalan Slide
+    const video = document.getElementById('videoPerkenalan');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(video);
   </script>
 </body>
 </html>
