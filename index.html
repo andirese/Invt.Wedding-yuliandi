@@ -232,6 +232,60 @@
     to { transform: translateX(0); opacity: 1; }
   }
 </style>
+  /* Animasi Fade In */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animasi Slide In Left */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animasi Slide In Right */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Mengatur animasi untuk elemen */
+#countdown {
+  animation: fadeIn 2s;
+}
+
+.AKAD-NIKAH {
+  animation: slideInLeft 2s;
+}
+
+.tanggal {
+  animation: slideInRight 2s;
+}
+
+.waktu {
+  animation: fadeIn 2s;
+}
+
+.lokasi {
+  animation: slideInLeft 2s;
+}
 
 <script>
   const weddingDate = new Date("September 22, 2025 09:00:00").getTime();
