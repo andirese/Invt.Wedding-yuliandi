@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Undangan Pernikahan Andi & Yuli</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Amsterdam+One&family=Alike&family=Bricolage+Grotesque&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -14,8 +17,7 @@
       overflow-x: hidden;
     }
     video#bgVideo {
-      position: fixed;
-      top: 0; left: 0;
+      position: fixed; top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
       z-index: -3;
@@ -25,83 +27,98 @@
       justify-content: center; align-items: center;
       text-align: center; color: white;
       min-height: 100vh; padding: 1.5rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
       background: rgba(0, 0, 0, 0.15);
-      position: relative; z-index: 1;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      position: relative;
+      z-index: 1;
     }
     .background-overlay {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background-image: url('foto-pengantin-home.jpg');
+      background-image: url('foto aresequeen.jpg');
       background-repeat: no-repeat;
-      background-size: 80% auto;
+      background-size: 80% auto; background-repeat: no-repeat;
       background-position: center;
       opacity: 0.2;
       z-index: -2;
+      animation: fadeIn 2s ease-in-out;
     }
+    .hidden { display: none; }
     .oval-photo {
       width: 50vw; max-width: 300px;
-      aspect-ratio: 3/4;
+      aspect-ratio: 3 / 4;
       border-radius: 50% / 40%;
       overflow: hidden;
-      margin-bottom: 1rem;
-      border: 4px solid #fff;
+      margin-bottom: 1rem; border: 4px solid #fff;
+      animation: zoomIn 1.5s ease;
     }
     .oval-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
+      width: 100%; height: 100%; object-fit: cover;
+      animation: fadeInUp 2s ease;
     }
     .title {
       font-family: 'Alike', serif;
-      font-size: 6vw;
+      font-size: 6vw; margin-bottom: 0.5rem;
       animation: fadeIn 2s ease-in;
     }
     .names {
       font-family: 'Amsterdam One', cursive;
       font-size: 5.5vw;
+      margin-bottom: 1rem;
       animation: fadeInUp 2s ease-out;
     }
     .to {
-      font-size: 4vw;
+      font-size: 4vw; margin-bottom: 0.5rem;
       animation: slideInLeft 2s ease-in;
     }
     .guest-name {
       font-family: 'Great Vibes', cursive;
       font-size: 4.5vw;
+      margin-bottom: 1rem;
       animation: zoomIn 3s ease-in-out;
     }
     .open-button {
-      margin-top: 1rem;
       background-color: #9b6b3e; color: #fff;
-      padding: 0.75rem 2rem;
-      border: none;
-      font-size: 1rem;
-      border-radius: 8px;
+      padding: 0.75rem 2rem; border: none;
+      font-size: 1rem; border-radius: 8px;
       cursor: pointer;
       animation: bounce 2s infinite;
+      transition: background 0.3s;
     }
+    .open-button:hover { background-color: #b47a47; }
     .music-toggle {
       position: fixed; top: 20px; right: 20px;
       background: rgba(255, 255, 255, 0.7);
-      border: none; border-radius: 50%;
-      padding: 10px; z-index: 10;
+      border: none; border-radius: 50%; padding: 10px;
+      cursor: pointer; z-index: 10;
     }
-    .music-toggle img {
-      width: 30px; height: 30px;
-    }
+    .music-toggle img { width: 30px; height: 30px; }
     .nav-fixed {
-      position: fixed;
-      bottom: 0; width: 100%;
+      position: fixed; bottom: 0; width: 100%;
       background: rgba(0,0,0,0.3);
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-      z-index: 99;
+      display: flex; justify-content: space-around;
+      padding: 10px 0; z-index: 99;
     }
     .nav-fixed a img {
       width: 32px;
       height: 32px;
+    }
+    .slide .text1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 6vw; margin-bottom: 0.5rem;
+      animation: slideInLeft 1.5s ease-out;
+    }
+    .slide .text2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 8vw; margin-bottom: 0.5rem;
+      animation: zoomIn 2s ease-out;
+    }
+    .slide .text3 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 5vw;
+      animation: slideInRight 2s ease-in;
     }
     @keyframes fadeIn {
       from { opacity: 0; } to { opacity: 1; }
@@ -114,6 +131,10 @@
       from { opacity: 0; transform: translateX(-100px); }
       to { opacity: 1; transform: translateX(0); }
     }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -122,24 +143,11 @@
       from { transform: scale(0.8); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
-    .video-wrapper {
-      display: none;
-      z-index: 3;
-      position: relative;
-      pointer-events: auto;
-      width: 90vw;
-      max-width: 600px;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1rem;
-      border-radius: 12px;
-      justify-content: center;
-      align-items: center;
-    }
   </style>
 </head>
 <body>
   <video autoplay muted loop id="bgVideo">
-    <source src="background.mp4" type="video/mp4">
+    <source src="background1.mp4" type="video/mp4">
   </video>
 
   <button class="music-toggle" onclick="toggleMusic()">
@@ -171,21 +179,10 @@
   </section>
 
   <section class="container" id="homeSlide">
-    <div class="background-overlay"></div>
-    <div class="title">Wedding Invitation</div>
-    <div class="names">Andi & Yuli</div>
-    <div class="to">22 September 2025</div>
-  </section>
-
-  <section class="container" id="perkenalanSlide">
-    <div class="background-overlay"></div>
-    <div class="video-wrapper" id="videoWrapper">
-      <video id="videoPerkenalan" muted playsinline style="width: 100%; max-height: 80vh; border-radius: 12px;">
-        <source src="video-perkenalan.mp4" type="video/mp4">
-        Browser tidak mendukung video.
-      </video>
-    </div>
-  </section>
+  <div class="background-overlay"></div>
+  <div class="title" style="color: #ffd700;">THE WEDDING OF</div>
+  <div class="names" style="color: #ffd700;">Andi & Yuli</div>
+</section>
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
@@ -193,7 +190,6 @@
     if (namaTamu) {
       document.getElementById('guestName').textContent = decodeURIComponent(namaTamu);
     }
-
     const bgMusic = document.getElementById('bgMusic');
     const musicIcon = document.getElementById('musicIcon');
     let isPlaying = false;
@@ -207,21 +203,6 @@
       }
       isPlaying = !isPlaying;
     }
-
-    const video = document.getElementById('videoPerkenalan');
-    const wrapper = document.getElementById('videoWrapper');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          wrapper.style.display = 'flex';
-          video.play();
-        } else {
-          wrapper.style.display = 'none';
-          video.pause();
-        }
-      });
-    }, { threshold: 0.6 });
-    observer.observe(document.getElementById('perkenalanSlide'));
   </script>
 </body>
 </html>
