@@ -315,11 +315,6 @@
       }
       isPlaying = !isPlaying;
     }
-  document.querySelector('.open-button').addEventListener('click', function() {
-    bgMusic.play();
-    isPlaying = true;
-    musicIcon.src = 'logomusikplay.png';
-  });
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !isPlaying) {
       bgMusic.play();
