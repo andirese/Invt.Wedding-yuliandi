@@ -325,21 +325,6 @@
 
   observer.observe(document.querySelector('#homeSlide'));
 
-  <script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const namaPria = urlParams.get('namaPria');
-  const namaWanita = urlParams.get('namaWanita');
-
-  if (namaPria && namaWanita) {
-    document.querySelectorAll('.names').forEach(element => {
-      element.textContent = ${namaPria} & ${namaWanita};
-    });
-    document.querySelectorAll('.title').forEach(element => {
-      if (element.style.color === 'rgb(255, 215, 0)') {
-        element.textContent = THE WEDDING OF ${namaPria} & ${namaWanita};
-      }
-    });
-  }
 </script>
 </body>
 </html>
