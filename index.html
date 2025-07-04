@@ -315,6 +315,21 @@
       }
       isPlaying = !isPlaying;
     }
-  </script>
+  document.querySelector('.open-button').addEventListener('click', function() {
+    bgMusic.play();
+    isPlaying = true;
+    musicIcon.src = 'logomusikplay.png';
+  });
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !isPlaying) {
+      bgMusic.play();
+      isPlaying = true;
+      musicIcon.src = 'logomusikplay.png';
+    }
+  }, { threshold: 0.5 });
+
+  observer.observe(document.querySelector('#homeSlide'));
+</script>
 </body>
 </html>
+ 
